@@ -66,11 +66,19 @@
 
 
     function invitarCafesito() {
-        var opcion = confirm("Si te sirvió me invitás un cafecito?");
-        if (opcion == true) {
-            alert('Muchas gracias!!!!!');
-            window.location = "https://cafecito.app/cadp";
-        }
+        Swal.fire({
+            title: 'Me invitas un cafesito?',
+            confirmButtonText: 'si',
+            showCancelButton: true,
+            cancelButtonText: 'no',
+        }).then((result) => {
+            /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) {
+                window.open('https://cafecito.app/cadp');
+            }
+        })
+
+
     }
 
     document.querySelectorAll('.cafecito').forEach(item => {
